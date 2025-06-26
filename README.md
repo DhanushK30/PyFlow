@@ -1,15 +1,40 @@
-PyAutomate is an API-first workflow automation engine built with FastAPI, React, and Celery. Inspired by Zapier, PyAutomate allows users to create seamless automations between apps such as Gmail, Google Sheets, Slack, and Notion.
+# ⚙️ PyFlow – API-First Automation Engine with Visual Workflow Builder
 
-🚀 Features:
-- Visual Workflow Builder (React)
-- API-first backend (FastAPI)
-- Task orchestration with Celery + Redis
-- Modular integrations (Gmail, Sheets, Notion, Slack, etc.)
-- Authentication with JWT or OAuth2
-- Extensible and developer-friendly
+> A modern, open-source Zapier clone built with FastAPI, Celery, Redis, and PostgreSQL — designed to automate your tasks through customizable workflows and seamless third-party API integrations.
 
-🎯 Example Workflow:
-"When I get an email → Add row in Google Sheet → Notify in Slack"
+![PyFlow Banner](https://img.shields.io/badge/build-FastAPI-green?style=for-the-badge)
+![License](https://img.shields.io/github/license/DhanushK30/PyFlow?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/DhanushK30/PyFlow?style=for-the-badge)
 
-🔧 Tech Stack:
-FastAPI · Celery · Redis · React · OAuth2 · JWT · PostgreSQL
+---
+
+## 🚀 What is PyFlow?
+
+**PyFlow** is a backend-first automation engine that lets you connect apps like Gmail, Slack, Notion, Google Sheets, and more — all via API-powered workflows. Think Zapier, but open-source, customizable, and written with production-grade Python frameworks.
+
+---
+
+## 🧠 Key Features
+
+- 🔌 **API-first design** — Expose and trigger workflows via RESTful APIs
+- ⚙️ **Workflow engine** — Run multi-step workflows asynchronously (via Celery)
+- 📦 **Prebuilt Integrations** — Gmail, Slack, Notion, Google Sheets, and more
+- 💾 **Database-backed** — SQLModel + PostgreSQL for robust workflow storage
+- 🔁 **Event Triggers & Scheduling** — Run workflows via webhooks or timers
+- 🔐 **JWT Auth** (upcoming) — Secure access and multi-user support
+- 🧩 **React-based UI** (planned) — Drag-and-drop workflow builder (like Zapier)
+
+---
+
+## 🛠 Tech Stack
+
+| Layer        | Tech Stack                         |
+|--------------|------------------------------------|
+| Backend      | FastAPI, SQLModel, PostgreSQL      |
+| Task Queue   | Celery + Redis                     |
+| Auth         | OAuth2 / JWT (Coming Soon)         |
+| Frontend     | React + Flowchart.js (Planned)     |
+| Integrations | Gmail API, Slack Web API, Notion   |
+| Deployment   | Docker, Railway/Render (Upcoming)  |
+
+
