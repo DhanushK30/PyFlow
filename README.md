@@ -2,10 +2,6 @@
 
 > A modern, open-source Zapier clone built with FastAPI, Celery, Redis, and PostgreSQL — designed to automate your tasks through customizable workflows and seamless third-party API integrations.
 
-![PyFlow Banner](https://img.shields.io/badge/build-FastAPI-green?style=for-the-badge)
-![License](https://img.shields.io/github/license/DhanushK30/PyFlow?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/DhanushK30/PyFlow?style=for-the-badge)
-
 ---
 
 ## 🚀 What is PyFlow?
