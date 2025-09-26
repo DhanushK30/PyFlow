@@ -1,7 +1,8 @@
 # app/routers/workflows.py
 
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException # <-- Re-add HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status 
+from celery_worker import run_workflow_task 
 from sqlmodel import Session, select
 
 from app.database import get_session
@@ -69,3 +70,24 @@ def create_task_for_workflow(
     session.commit()
     session.refresh(db_task)
     return db_task
+
+@router.post("/{workflow_id}/run", status_code=status.HTTP_202_ACCEPTED)
+def run_workflow(
+    *,
+    session: Session = Depends(get_session),
+    workflow_id: int
+):
+    """
+    Trigger a workflow to run in the background.
+    """
+    # First, check if the workflow exists
+    workflow = session.get(Workflow, workflow_id)
+    if not workflow:
+        raise HTTPException(status_code=404, detail="Workflow not found")
+    
+    # Send the task to the Celery worker
+    # .delay() is the magic that sends it to the Redis queue.
+    task_result = run_workflow_task.delay(workflow.id)
+    
+    # Return immediately to the user
+    return {"message": "Workflow run has been triggered.", "task_id": task_result.id}
